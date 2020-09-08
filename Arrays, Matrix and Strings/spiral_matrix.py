@@ -1,5 +1,10 @@
 class Solution:
     def spiralOrder(self, matrix):
+        #Method 1:
+        '''
+        07/27/2020 16:20	Accepted	32 ms	14 MB	python3
+        '''
+        '''
         if not matrix or not matrix[0]:
             return matrix
         fin = []
@@ -22,7 +27,18 @@ class Solution:
                 for i in range(m-1,k-1,-1):
                     fin.append(matrix[i][l])
                 l+=1
-        return fin
+        print(fin)
+        '''
+        #Method 2:
+        '''
+        Runtime: 24 ms, faster than 94.79% of Python3 online submissions for Spiral Matrix.
+        Memory Usage: 13.7 MB, less than 85.85% of Python3 online submissions for Spiral Matrix.
+        '''
+        out = []
+        while len(matrix):
+            out += matrix.pop(0)
+            matrix = list(zip(*matrix))[::-1] # Rotate
+        print(out)
 
 mat = [
   [1, 2, 3, 4],
