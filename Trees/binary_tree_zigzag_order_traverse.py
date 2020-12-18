@@ -24,10 +24,10 @@ return its zigzag level order traversal as:
 #         self.right = right
 class Solution:
     def zigzagLevelOrder(self, root):
-        stk = [[root]]
+        queue = [[root]]
         ans = []
         while stk:
-            currentlvl = stk.pop()
+            currentlvl = queue.pop()
             nodes = []
             nextlvl = []
             for i in currentlvl:
@@ -35,7 +35,7 @@ class Solution:
                     nodes.append(i.val)
                     nextlvl.extend([i.left,i.right])
             if nextlvl:
-                stk.append(nextlvl)
+                queue.append(nextlvl)
                 ans.append(nodes)
             elif nodes:
                 ans.append(nodes)
